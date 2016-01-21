@@ -4,8 +4,6 @@
 
 [![Code Climate](https://codeclimate.com/github/vermartian/toy-chess/badges/gpa.svg)](https://codeclimate.com/github/vermartian/toy-chess)
 
-[![Test Coverage](https://codeclimate.com/github/vermartian/toy-chess/badges/coverage.svg)](https://codeclimate.com/github/vermartian/toy-chess/coverage)
-
 #### Description: ####
   Browser to browser two player chess game using ruby on rails!
 
