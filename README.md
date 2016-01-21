@@ -1,28 +1,10 @@
-== README
+![Build Status](https://codeship.com/projects/b08dc5d0-a228-0133-0466-465166e508dd/status?branch=master)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Coverage Status](https://coveralls.io/repos/github/vermartian/toy-chess/badge.svg?branch=master)](https://coveralls.io/github/vermartian/toy-chess?branch=master)
 
-Things you may want to cover:
+[![Code Climate](https://codeclimate.com/github/vermartian/toy-chess/badges/gpa.svg)](https://codeclimate.com/github/vermartian/toy-chess)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+[![Test Coverage](https://codeclimate.com/github/vermartian/toy-chess/badges/coverage.svg)](https://codeclimate.com/github/vermartian/toy-chess/coverage)
 
 #### Description: ####
   Browser to browser two player chess game using ruby on rails!
