@@ -1,4 +1,7 @@
 class Piece < ActiveRecord::Base
+  belongs_to :player
+  belongs_to :game
+  
   attr_accessor :color, :x, :y, :type, :vectors, :sliding, :state
 
   def initialize(
