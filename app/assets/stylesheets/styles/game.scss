@@ -1,0 +1,53 @@
+/*// * {margin: 0; padding: 0; }
+// table { border-collapse: collapse; border-spacing: 0; }
+//
+// #chessboard { padding: 0px; margin: 0 auto; border: 2px solid #181818; }
+// #chessboard tr td { width: 60px; height: 60px; }
+// #chessboard tr:nth-child(2n) td:nth-child(2n+1) { background: #9f9f9f; }
+// #chessboard tr:nth-child(2n+1) td:nth-child(2n) { background: #9f9f9f; }*/
+
+#chessboard {
+  border-collapse: collapse;
+  margin: 0 auto .5em auto;
+  padding-top: 40px;
+  width: auto;
+  border: 3px solid black;
+}
+
+#chessboard tr:nth-child(even) td:nth-child(even),
+#chessboard tr:nth-child(odd) td:nth-child(odd) {
+  background-color: #5c90a1;
+}
+
+#chessboard tr:nth-child(even) td:nth-child(odd),
+#chessboard tr:nth-child(odd) td:nth-child(even) {
+  background-color: #15364b;
+}
+
+#chessboard tr, #chessboard td {
+  border: 3px solid black;
+}
+
+#chessboard td {
+  width: 70px;
+  height: 70px;
+  padding: 0;
+}
+
+#chessboard td:hover {
+  -webkit-box-shadow: inset 0px 0px 5px 5px #50bf79;
+  box-shadow: inset 0px 0px 5px 5px #50bf79;
+}
+
+#chessboard td.selected {
+  border: 2px solid #50bf79 !important;
+}
+
+#chessboard td.selected.select-destination {
+  border: none;
+}
+
+// .hover {
+//   -webkit-box-shadow: inset 0px 0px 5px 5px rgba(50, 150, 25, .5);
+//   box-shadow: inset 0px 0px 5px 5px rgba(50, 150, 25, .5);
+// }
