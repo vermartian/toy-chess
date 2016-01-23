@@ -9,11 +9,12 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'foundation-rails'
+gem 'foundation-rails', '= 5.5.3.2'
 
 gem 'simple_form'
 gem 'devise'
 gem 'kaminari'
+gem 'gon'
 
 group :development, :test do
   gem 'pry-rails'
