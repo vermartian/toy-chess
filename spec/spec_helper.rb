@@ -2,6 +2,8 @@ require 'coveralls'
 Coveralls.wear!('rails')
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

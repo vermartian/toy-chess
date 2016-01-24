@@ -1,6 +1,11 @@
 <h1>Start New Game Here</h1>
 
 <%= simple_form_for @game do |f| %>
-  Name Your Game: <%= f.text_field :title %>
-  Choose Your Color:
+  <%= f.label :title, "Name Your Game:" %>
+  <%= f.text_field :title %>
+  <%= f.submit "Begin!" %>
+<% end %>
+<%= form_for(@gameplay, url: "#") do |f| %>
+  <%= f.label "Choose Your Color" %>
+  <%= f.collection_radio_buttons(:color, [[false, "White"], [true, "Black"]], :first, :last) %>
 <% end %>

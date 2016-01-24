@@ -1,2 +1,6 @@
 
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "chess_board.js" %>
+<% end %>
+<h1><%= @game.title %></h1>
 <table id="chessboard"></table>
