@@ -1,3 +1,7 @@
 <h1>Welcome!</h1>
 
-<%= link_to "Start New Game", new_game_path %>
+<% if player_signed_in? %>
+  <%= link_to "Start New Game", new_game_path %>
+<% else %>
+  <%= link_to "Sign up to play chess", new_player_registration_path %>
+<% end %>

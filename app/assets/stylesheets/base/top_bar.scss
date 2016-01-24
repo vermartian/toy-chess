@@ -1,0 +1,30 @@
+
+ul {
+  margin-left: 50px;
+  list-style: none;
+  font-size: 20px;
+}
+
+.top-bar {
+  background-color: #15364b;
+  color: white;
+}
+
+.centered {
+  padding: 3rem;
+  padding-left: 11rem;
+}
+
+.bottom_bar_show {
+  text-align: center;
+}
+
+.inline {
+  padding-right: 1rem;
+  display: inline-block;
+}
+
+#signed_in {
+  background-size: cover;
+  padding: .60rem;
+}

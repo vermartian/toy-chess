@@ -13,18 +13,44 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">My Site</a></h1>
+        </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+    <!-- Right Nav Section -->
+      <ul class="right">
         <% if player_signed_in? %>
-          <li><%= link_to "Sign Out", "#" %></li>
+          <li id="signed_in">Signed in as:</li><li id="signed_in"><strong><%= current_player.user_name %></strong></li>
+          <li><strong><%= link_to 'Sign Out', destroy_player_session_path, method: :delete %></strong></li>
         <% else %>
-          <li><%= link_to "Sign Up", new_player_registration_path %></li>
+          <li><strong><%= link_to 'Sign In', new_player_session_path %></strong></li>
+          <li><strong><%= link_to 'Sign Up', new_player_registration_path %></strong></li>
         <% end %>
       </ul>
-    </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <!-- Left Nav Section -->
+      <ul class="left">
+        <li><a href="#">CHESS</a></li>
+      </ul>
+    </section>
+  </nav>
+    <div class="row">
+      <% flash.each do |key, value| %>
+        <div data-alert class="alert-box radius flash <%= key %>">
+          <%= value %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+    </div>
+    
     <%= yield %>
+    <%= yield :javascript_includes %>
 
   </body>
 </html>
