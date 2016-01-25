@@ -1,26 +1,53 @@
 class Piece < ActiveRecord::Base
   belongs_to :player
   belongs_to :game
-  
-  attr_accessor :color, :x, :y, :type, :vectors, :sliding, :state
+  include GamesHelper
+  # after_initialize :make
+  #
+  # attr_accessor :color, :x, :y, :type, :vectors, :sliding, :state
+  #
+  # def self.make(
+  #   color = nil,
+  #   sliding = false,
+  #   type = nil,
+  #   x = nil,
+  #   y = nil,
+  #   vectors = [],
+  #   state = "off"
+  # )
+  #   @color = color
+  #   @type = type
+  #   @sliding = sliding
+  #   @x = x
+  #   @y = y
+  #   @vectors = vectors
+  #   @state = state
+  #   self.new(color: color, sliding: sliding, type: type, x: x, y: y, vectors: vectors, state: state)
+  # end
 
-  def initialize(
-    color = nil,
-    sliding = false,
-    type = nil,
-    x = nil,
-    y = nil,
-    vectors = [],
-    state = "off"
-  )
-    @color = color
-    @type = type
-    @sliding = sliding
-    @x = x
-    @y = y
-    @vectors = vectors
-    @state = state
+  # def color(color)
+  #   @color ||= color
+  # end
+  # def type(type)
+  #   @type ||= type
+  # end
+  # def sliding(sliding)
+  #   @sliding ||= sliding
+  # end
+  # def x(x)
+  #   @x ||= x
+  # end
+  # def y(y)
+  #   @y ||= y
+  # end
+  def vectors(vectors = [])
+    @vectors ||= vectors
   end
+  # def state(state)
+  #   @state ||= state
+  # end
+
+
 
   def move(position)
     if self.move_capable?(position)
