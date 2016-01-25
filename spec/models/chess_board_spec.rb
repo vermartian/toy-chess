@@ -9,27 +9,26 @@ RSpec.describe ChessBoard, type: :model do
     a_number
   end
 
-  it "is made up of an 8x8 array of arrays of squares" do
+  it "is made up of an 8x8 array of arrays" do
     b_number = rand(8)
 
-    expect(chess_board.squares).to be_an(Array)
-    expect(chess_board.squares.length).to eq(8)
-    expect(chess_board.squares[a_number]).to be_an(Array)
-    expect(chess_board.squares[a_number].length).to eq(8)
-    expect(chess_board.squares[a_number][b_number]).to be_a(Square)
+    expect(chess_board.board).to be_an(Array)
+    expect(chess_board.board.length).to eq(8)
+    expect(chess_board.board[a_number]).to be_an(Array)
+    expect(chess_board.board[a_number].length).to eq(8)
   end
 
   it 'upon initialization it sets up the initial position of a chess match' do
     b_number = rand(2..5)
 
-    expect(chess_board.board[1][a_number].piece).to be_an(Pawn)
-    expect(chess_board.board[1][a_number].piece.color).to eq(false)
-    expect(chess_board.board[6][a_number].piece).to be_an(Pawn)
-    expect(chess_board.board[6][a_number].piece.color).to eq(true)
-    expect(chess_board.board[0][3].piece).to be_a(Queen)
-    expect(chess_board.board[0][a_number].piece.color).to eq(false)
-    expect(chess_board.board[7][4].piece).to be_a(King)
-    expect(chess_board.board[7][a_number].piece.color).to eq(true)
-    expect(chess_board.board[b_number][a_number].piece).to eq(nil)
+    expect(chess_board.board[1][a_number]).to be_an(Pawn)
+    expect(chess_board.board[1][a_number].color).to eq(false)
+    expect(chess_board.board[6][a_number]).to be_an(Pawn)
+    expect(chess_board.board[6][a_number].color).to eq(true)
+    expect(chess_board.board[0][3]).to be_a(Queen)
+    expect(chess_board.board[0][a_number].color).to eq(false)
+    expect(chess_board.board[7][4]).to be_a(King)
+    expect(chess_board.board[7][a_number].color).to eq(true)
+    expect(chess_board.board[b_number][a_number]).to eq(nil)
   end
 end

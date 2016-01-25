@@ -1,11 +1,14 @@
 class GamesController < ApplicationController
+  include GamesHelper
   def index
   end
 
   def show
     @player = current_player
     @game = Game.find(params[:id])
-    @gameplays = Gameplay.where(game: @game).to_a
+    chess_board = @game.chess_board
+    gon.board = chess_board
+    gon.figs = figuratize(chess_board)
   end
 
   def new
@@ -18,7 +21,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @gameplay = Gameplay.new(player_id: current_player.id)
     if @game.save
-      flash[:notice] = "Game Created Successfully"
+      # flash[:notice] = "Game Created Successfully"
       # m = "#{@player.user_name} just added a game to review! Check it out at"
       # m += " https://toy-chess.herokuapp.com/games/#{@game.id}"
       # $twitter.update(m)
