@@ -32,8 +32,9 @@ RSpec.describe Piece, type: :model do
     expect(piece.x).to eq(1)
     expect(piece.x).to eq(1)
   end
-  it 'has a sliding boolean attribute' do
-
+  it 'has an accessable sliding boolean attribute' do
+    piece.sliding = false
+    
     expect(piece.sliding).to eq(false)
   end
   it 'has an array of directional move vectors' do
