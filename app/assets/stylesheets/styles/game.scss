@@ -13,11 +13,11 @@
   justify-content: center;
 }
 
-.gylist {
+.gy {
 
 }
 
-.gylist ul{
+.gy{
   margin: 0;
   top: 50%;
   transform: translate(0, -50%);
@@ -78,12 +78,14 @@
 }
 
 .gy {
+  border: transparent;
   border-collapse: collapse;
+  background: transparent;
 }
 
 .gy td {
-  width: 35px;
-  height: 35px;
+  width: 65px;
+  height: 65px;
 }
 // .hover {
 //   -webkit-box-shadow: inset 0px 0px 5px 5px rgba(50, 150, 25, .5);

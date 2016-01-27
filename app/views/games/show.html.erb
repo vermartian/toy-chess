@@ -1,4 +1,5 @@
 
+<div id="show">
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "chess_board.js" %>
   <%= javascript_include_tag "gameplay.js" %>
@@ -7,14 +8,14 @@
 <div id="cbwithgys">
   <ul id="cbgylist">
     <li class="inline">
-      <div class="gylist" id="whitegy">
-        <table class="gy" id="bgrave"></table>
+      <div class="gylist" id="blackgy">
+        <table class="gy" id="bgrave"><td></td></table>
       </div>
     </li>
     <li class="inline"><table id="chessboard" data-turn='TODO:turn?'></table></li>
     <li class="inline">
-      <div class="gylist" id="blackgy">
-        <table class="gy" id="wgrave"></table>
+      <div class="gylist" id="whitegy">
+        <table class="gy" id="wgrave"><td></td></table>
       </div>
     </li>
   </ul>
@@ -23,4 +24,5 @@
 <div>
 <div>
 </br>
+</div>
 </div>

@@ -6,11 +6,11 @@ $('#chessboard td').click(function() {
 
     var $piece = pieceSelected();
 
-    if ($piece.data('piece') === $this.data('piece')) {
+    if ($piece.data('piece_id') === $this.data('piece_id')) {
       pieceDeselect($this);
     }
     else {
-      makeMove($piece)
+      makeMove($piece, $this)
     }
   }
   else {
@@ -29,17 +29,12 @@ function pieceSelected() {
   return $('#chessboard td.selected');
 };
 function makeMove($piece, $droppedOn) {
+  pieceDeselect($piece);
   var piece = {
-      id: $piece.data('piece'),
+      id: $piece.data('piece_id'),
       x: $droppedOn.data('x'),
       y: $droppedOn.data('y')
   }
-  pieceDeselect($piece);
-  piece.addClass('selected');
-  $()
-  // var child = document.getElementById("p1");
-  // var para = document.getElementById("p2");
-  // parent.replaceChild(para,child);
 };
 $(function(){
   $('img').draggable({ containment: "page", revert: 'invalid' });
@@ -47,16 +42,20 @@ $(function(){
 $(function(){
   $('td').droppable({
     drop: function(ev, ui) {
-        var dropped = ui.draggable;
-        var droppedOn = $(this);
-        var droppedOnPiece = droppedOn.find("img").detach().css({top: 0, left: 0});
-        debugger
-        $("#wgrave").append("<td>"+droppedOnPiece[0]+"<td>");
-        $(droppedOn).droppable("disable");
-        $(dropped).parent().droppable("enable");
-        // $(droppedOn).child().remove;
-        $(dropped).detach().css({top: 0, left: 0}).appendTo(droppedOn);
-        $(droppedOn).droppable("enable");
+      var dropped = ui.draggable;
+      var droppedOn = $(this);
+      if (droppedOn.find("img").data('color') == true){
+        droppedOn.find("img").css({top: 0, left: 0}).appendTo("#bgrave td");
+      } else {
+        droppedOn.find("img").css({top: 0, left: 0}).appendTo("#wgrave td");
+      };
+      // if (droppedOnPiece.length > 0) {
+      //   $("<td>"+droppedOnPiece[0]+"<td>");
+      // };
+      $(droppedOn).droppable("disable");
+      $(dropped).parent().droppable("enable");
+      $(dropped).detach().css({top: 0, left: 0}).appendTo(droppedOn);
+      $(droppedOn).droppable("enable");
     }
   });
 });
