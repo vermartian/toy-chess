@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require chess_board
-
+//= require gameplay
+gon.board
+gon.figs
 $(function(){ $(document).foundation(); });
