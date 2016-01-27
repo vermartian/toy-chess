@@ -6,6 +6,35 @@
 // #chessboard tr:nth-child(2n) td:nth-child(2n+1) { background: #9f9f9f; }
 // #chessboard tr:nth-child(2n+1) td:nth-child(2n) { background: #9f9f9f; }*/
 
+#cbwithgys {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.gylist {
+
+}
+
+.gylist ul{
+  margin: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+#blackgy{
+
+}
+
+#whitegy{
+
+}
+
+#cbgylist {
+  display: inline-block;
+}
+
 #chessboard {
   border-collapse: collapse;
   margin: 0 auto .5em auto;
@@ -40,13 +69,22 @@
 }
 
 #chessboard td.selected {
-  border: 2px solid #50bf79 !important;
+  -webkit-box-shadow: inset 0px 0px 4px 4px rgba(#b94343, 0.9);
+  box-shadow: inset 0px 0px 4px 4px rgba(#c41d1d, 0.88);
 }
 
 #chessboard td.selected.select-destination {
   border: none;
 }
 
+.gy {
+  border-collapse: collapse;
+}
+
+.gy td {
+  width: 35px;
+  height: 35px;
+}
 // .hover {
 //   -webkit-box-shadow: inset 0px 0px 5px 5px rgba(50, 150, 25, .5);
 //   box-shadow: inset 0px 0px 5px 5px rgba(50, 150, 25, .5);

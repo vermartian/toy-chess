@@ -7,11 +7,11 @@ module GamesHelper
   end
 
   def figuratize(new_board)
-    piece_rows = [new_board[0], new_board[1], new_board[6], new_board[7]]
+    piece_rows = [new_board[0], new_board[1], new_board[6], new_board[7]].reverse
     piece_figs = []
     piece_rows.each do |row|
       row.each do |piece|
-        piece_figs << piece.figure
+        piece_figs << ["#{piece.color}", piece.figure]
       end
     end
     piece_figs

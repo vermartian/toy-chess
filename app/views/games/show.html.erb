@@ -1,6 +1,26 @@
 
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "chess_board.js" %>
+  <%= javascript_include_tag "gameplay.js" %>
 <% end %>
-<h1><%= @game.title %></h1>
-<table id="chessboard"></table>
+<h5><%= @game.title %></h5>
+<div id="cbwithgys">
+  <ul id="cbgylist">
+    <li class="inline">
+      <div class="gylist" id="whitegy">
+        <table class="gy" id="bgrave"></table>
+      </div>
+    </li>
+    <li class="inline"><table id="chessboard" data-turn='TODO:turn?'></table></li>
+    <li class="inline">
+      <div class="gylist" id="blackgy">
+        <table class="gy" id="wgrave"></table>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div>
+<div>
+</br>
+</div>
