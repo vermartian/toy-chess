@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'kaminari'
 gem 'gon'
+gem 'pusher'
 
 group :development, :test do
   gem 'pry-rails'

@@ -137,6 +137,9 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    pusher (0.11.3)
+      multi_json (~> 1.0)
+      signature (~> 0.1.6)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -210,6 +213,7 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (3.1.0)
       activesupport (>= 4.0.0)
+    signature (0.1.7)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -276,6 +280,7 @@ DEPENDENCIES
   pg (~> 0.15)
   poltergeist
   pry-rails
+  pusher
   quiet_assets
   rails (= 4.2.5)
   rails_12factor
