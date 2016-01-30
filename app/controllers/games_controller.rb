@@ -1,28 +1,29 @@
 class GamesController < ApplicationController
   include GamesHelper
   def index
+    @player = current_player
+    @games = Game.joins(gameplays: :player)
   end
 
   def show
     @player = current_player
     @game = Game.find(params[:id])
-    chess_board = @game.chess_board
-    gon.board = chess_board
-    gon.figs = figuratize(chess_board)
+    figuratize(@game)
+    fill_graves(@game)
   end
 
   def new
     @game = Game.new
-    @gameplay = Gameplay.new(player_id: current_player.id)
+    @gameplay = Gameplay.new
   end
 
   def create
     @player = current_player
     @game = Game.new(game_params)
-    @gameplay = Gameplay.new(player_id: current_player.id)
     if @game.save
+      Gameplay.create(game_id: @game.id, player_id: current_player.id, color: params[:color])
       # flash[:notice] = "Game Created Successfully"
-      # m = "#{@player.user_name} just added a game to review! Check it out at"
+      # m = "#{@player.user_name} just started a game"
       # m += " https://toy-chess.herokuapp.com/games/#{@game.id}"
       # $twitter.update(m)
       redirect_to game_path(@game)

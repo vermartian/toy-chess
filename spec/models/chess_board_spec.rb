@@ -18,17 +18,17 @@ RSpec.describe ChessBoard, type: :model do
     expect(chess_board.board[a_number].length).to eq(8)
   end
 
-  it 'upon initialization it sets up the initial position of a chess match' do
+  it 'using new_board method sets up the initial position of a chess match' do
     b_number = rand(2..5)
-
-    expect(chess_board.board[1][a_number]).to be_an(Pawn)
-    expect(chess_board.board[1][a_number].color).to eq(false)
-    expect(chess_board.board[6][a_number]).to be_an(Pawn)
-    expect(chess_board.board[6][a_number].color).to eq(true)
-    expect(chess_board.board[0][3]).to be_a(Queen)
-    expect(chess_board.board[0][a_number].color).to eq(false)
-    expect(chess_board.board[7][4]).to be_a(King)
-    expect(chess_board.board[7][a_number].color).to eq(true)
-    expect(chess_board.board[b_number][a_number]).to eq(nil)
+    board = chess_board.new_board
+    expect(board[1][a_number]).to be_an(Pawn)
+    expect(board[1][a_number].color).to eq(false)
+    expect(board[6][a_number]).to be_an(Pawn)
+    expect(board[6][a_number].color).to eq(true)
+    expect(board[0][3]).to be_a(Queen)
+    expect(board[0][a_number].color).to eq(false)
+    expect(board[7][4]).to be_a(King)
+    expect(board[7][a_number].color).to eq(true)
+    expect(board[b_number][a_number]).to eq(nil)
   end
 end

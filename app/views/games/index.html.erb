@@ -1,9 +1,26 @@
 <div id="index">
-  <h1>Welcome!</h1>
-
-  <% if player_signed_in? %>
-    <%= link_to "Start New Game", new_game_path %>
-  <% else %>
-    <%= link_to "Sign up to play chess", new_player_registration_path %>
-  <% end %>
+  <h1 id="gamesheader">
+    <% if player_signed_in? %>
+      My Games
+    <% else %>
+      Welcome!
+    <% end %>
+  </h1>
+  <div id="gamesbody">
+    <% if player_signed_in? %>
+      <div>
+        <% @games.each do |game| %>
+          <% unless game.title %>
+            <%= link_to "Game #{game.id}", game_path %>
+          <% end %>
+          <%= link_to "#{game.title}", game_path(game.id) %>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to "Start New Game", new_game_path %>
+      </div>
+    <% else %>
+      <%= link_to "Sign up to play chess", new_player_registration_path %>
+    <% end %>
+  </div>
 </div>

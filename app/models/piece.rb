@@ -1,8 +1,8 @@
 class Piece < ActiveRecord::Base
-  belongs_to :player
-  belongs_to :game
   include GamesHelper
-  
+  belongs_to :player
+  belongs_to :game 
+
   def vectors(vectors = [])
     @vectors ||= vectors
   end
