@@ -1,5 +1,7 @@
 class GameplaysController < ApplicationController
   def index
+    @player = current_player
+    @gameplays = Gameplay.where(player_id: @player)
   end
   def show
   end

@@ -15,6 +15,12 @@
 //= require foundation
 //= require chess_board
 //= require gameplay
+// $(document).ready(function () {
 gon.board
 gon.figs
+gon.b_grave
+gon.w_grave
+gon.b_dead_figs
+gon.w_dead_figs
 $(function(){ $(document).foundation(); });
+// });
