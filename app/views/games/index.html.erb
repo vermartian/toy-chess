@@ -6,15 +6,19 @@
       Welcome!
     <% end %>
   </h1>
-  <div id="gamesbody">
+  <div class="inline" id="gamesbody">
     <% if player_signed_in? %>
       <div>
-        <% @games.each do |game| %>
-          <% unless game.title %>
-            <%= link_to "Game #{game.id}", game_path %>
+        <ul>
+          <% @games.each do |game| %>
+            <li>
+              <% unless game.title %>
+                <%= link_to "Game #{game.id}", game_path %>
+              <% end %>
+              <%= link_to "#{game.title}", game_path(game.id) %>
+            </li>
           <% end %>
-          <%= link_to "#{game.title}", game_path(game.id) %>
-        <% end %>
+        </ul>
       </div>
       <div>
         <%= link_to "Start New Game", new_game_path %>
@@ -22,5 +26,8 @@
     <% else %>
       <%= link_to "Sign up to play chess", new_player_registration_path %>
     <% end %>
+  </div>
+  <div class="inline" id="gamesjoin">
+    <%= link_to "Join New Game", gameplays_path %>
   </div>
 </div>

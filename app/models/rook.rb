@@ -1,5 +1,5 @@
 class Rook < Piece
-  # after_initialize :make
+   :make
 
   def self.make(color, x = nil, y = nil)
     super(color, true, "rook", x, y)

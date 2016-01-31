@@ -21,11 +21,10 @@ feature "new game" do
     click_on "Log in"
     click_link "Start New Game"
     fill_in "Name Your Game:", with: "my game"
-    choose "White"
     click_on "Begin!"
 
     expect(page).to have_content("my game")
-    # expect(page.all("table#chessboard tr").count).to eq(8)
-    # expect(page.all("table#chessboard td").count).to eq(64)
+    expect(page.all("table#chessboard tr").count).to eq(8)
+    expect(page.all("table#chessboard td").count).to eq(64)
   end
 end

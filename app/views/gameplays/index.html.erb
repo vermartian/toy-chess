@@ -1,0 +1,32 @@
+<div id="joinables">
+  <% if player_signed_in? %>
+    <div>
+      <h3 class="gamelist">Available Games</h3>
+      <ul class="gamelist">
+        <% @games.each do |game| %>
+          <% if game.gameplays[0].player != current_player && game.gameplays[1].nil? %>
+            <li>
+              <% if game.title %>
+                <%= game.title %>
+              <% else %>
+                <%= "Game #{game.id}" %>
+              <% end %>
+              <%= "vs " + game.gameplays[0].player.user_name %>
+              <% @opp_color = game.gameplays[0].color %>
+              <% if @opp_color == true; @color = false; end %>
+              <% if @opp_color == false; @color = true; end  %>
+              <%= form_for @gameplay do |f| %>
+    			      <%= f.hidden_field(:player_id, :value => current_player.id) %>
+                <%= f.hidden_field(:game_id, :value => game.id) %>
+                <%= f.hidden_field(:color, :value => @color) %>
+    			      <%= f.submit 'Join Game' %>
+      			  <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <%= link_to "Sign up to play chess", new_player_registration_path %>
+  <% end %>
+</div>
