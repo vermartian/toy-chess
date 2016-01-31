@@ -1,13 +1,22 @@
 
 function initializeBoard(){
   for (var r=0; r<8; r++) {
-    var ypos = 7-r;
+    if (gon.player_color){
+      var ypos = r;
+    }else{
+      var ypos = 7-r;
+    };
     var col = "";
     for (var c=0; c<8; c++) {
-      if(gon.board[ypos][c] != null){
-        col += "<td data-x='"+c+"' data-y='"+ypos+"'><img data-piece-id='"+gon.board[ypos][c].id+"' data-color='"+gon.figs[ypos][c][0]+"' src='https://s3.amazonaws.com/toy-chess/"+gon.figs[ypos][c][1]+"'/></td>";
+      if (gon.player_color){
+        var xpos = 7-c;
       }else{
-        col += "<td data-x='"+c+"' data-y='"+ypos+"'></td>";
+        var xpos = c;
+      }
+      if(gon.board[ypos][xpos] != null){
+        col += "<td data-x='"+xpos+"' data-y='"+ypos+"'><img data-piece-id='"+gon.board[ypos][xpos].id+"' data-color='"+gon.figs[ypos][xpos][0]+"' src='https://s3.amazonaws.com/toy-chess/"+gon.figs[ypos][xpos][1]+"'/></td>";
+      }else{
+        col += "<td data-x='"+xpos+"' data-y='"+ypos+"'></td>";
       };
     };
     $("#chessboard").append("<tr>"+col+"</tr>");

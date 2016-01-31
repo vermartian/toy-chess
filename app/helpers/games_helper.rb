@@ -39,4 +39,8 @@ module GamesHelper
     gon.b_dead_figs = b_dead_figs
     gon.w_dead_figs = w_dead_figs
   end
+
+  def player_color(game)
+    gon.player_color = game.gameplays.where(player_id: current_player.id)[0].color
+  end
 end

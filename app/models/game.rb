@@ -1,20 +1,9 @@
 class Game < ActiveRecord::Base
   after_create :new_board!
+
   has_many :players, through: :gameplays
   has_many :pieces
   has_many :gameplays
-
-  # def new_chess_board
-  #   @chess_board = ChessBoard.new.new_board
-  #   if self.id
-  #     [0, 1, 6, 7].each do |row|
-  #       (0..7).each do |col|
-  #         @chess_board[row][col].game_id = self.id
-  #       end
-  #     end
-  #   end
-  #   @chess_board
-  # end
 
   def board
     board =[]

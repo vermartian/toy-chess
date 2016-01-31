@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   include GamesHelper
   def index
     @player = current_player
-    @games = Game.joins(gameplays: :player)
+    @games = Game.joins(gameplays: :player).where(gameplays: { player_id: @player })
   end
 
   def show
@@ -10,6 +10,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     figuratize(@game)
     fill_graves(@game)
+    player_color(@game)
   end
 
   def new
@@ -21,7 +22,7 @@ class GamesController < ApplicationController
     @player = current_player
     @game = Game.new(game_params)
     if @game.save
-      Gameplay.create(game_id: @game.id, player_id: current_player.id, color: params[:color])
+      Gameplay.create(game_id: @game.id, player_id: current_player.id, color: false)
       # flash[:notice] = "Game Created Successfully"
       # m = "#{@player.user_name} just started a game"
       # m += " https://toy-chess.herokuapp.com/games/#{@game.id}"

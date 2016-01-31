@@ -1,5 +1,5 @@
 class Queen < Piece
-  # after_initialize
+  
   def make(color, x = nil, y = nil)
     super(color, true, "queen", x, y)
   end
