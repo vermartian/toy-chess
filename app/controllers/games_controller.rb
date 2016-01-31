@@ -34,10 +34,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def update
+    @game = Game.find(game_params)
+    if @game.update
+      redirect_to game_path(@game)
+    else
+      flash[:errors] = @game.errors.full_messages.join(". ")
+    end
+  end
+
   private
 
   def game_params
-    params.require(:game).permit(:title)
+    params.require(:game).permit(:title, :state, :turn, :result, :winning_player_id, :draw_offerer_id)
   end
 
 end

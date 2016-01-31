@@ -6,7 +6,9 @@ class GameplaysController < ApplicationController
   def create
     @gameplay = Gameplay.new(gameplay_params)
     if @gameplay.save
-      redirect_to game_path(@gameplay.game_id)
+      @game = Game.find(@gameplay.game_id)
+      @game.update_attributes(state: "active", turn: 1)
+      redirect_to game_path(@game)
     else
       render :index
     end
