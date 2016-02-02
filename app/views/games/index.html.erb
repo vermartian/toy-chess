@@ -23,11 +23,11 @@
       <div>
         <%= link_to "Start New Game", new_game_path %>
       </div>
+      <div class="inline" id="gamesjoin">
+        <%= link_to "Join New Game", gameplays_path %>
+      </div>
     <% else %>
       <%= link_to "Sign up to play chess", new_player_registration_path %>
     <% end %>
-  </div>
-  <div class="inline" id="gamesjoin">
-    <%= link_to "Join New Game", gameplays_path %>
   </div>
 </div>

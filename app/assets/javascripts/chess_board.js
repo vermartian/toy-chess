@@ -35,8 +35,3 @@ function initializeGraveyards(){
 };
 initializeBoard();
 initializeGraveyards();
-// "<img data-piece_id='"+gon.board[ypos][c].id+"' id='"+imgcount+"' data-color='"+gon.figs[imgcount][0]+"' src='https://s3.amazonaws.com/toy-chess/"+gon.figs[imgcount][1]+"'/>";
-// "<img data-piece_id='"+gon.board[ypos][c].id+"' id='"+imgcount+"' data-color='"+gon.figs[imgcount][0]+"' src='https://s3.amazonaws.com/toy-chess/"+gon.figs[imgcount][1]+"'/>";
-
-
-// $("td").data('x')

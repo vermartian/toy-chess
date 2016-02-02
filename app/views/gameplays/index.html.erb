@@ -5,7 +5,7 @@
       <ul class="gamelist">
         <% @games.each do |game| %>
           <% if game.gameplays.length == 1 && game.gameplays.first.player != current_player %>
-            <li>
+            <li class="gamelist">
               <% if game.title %>
                 <%= game.title %>
               <% else %>

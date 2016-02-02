@@ -5,6 +5,12 @@ class PiecesController < ApplicationController
     @piece.update(piece_params)
     @game = @piece.game
     @fig = @piece.figure
+    channel = "public-conversation"
+    if @piece.state == "off"
+      Pusher.trigger(channel, 'kill_event', { piece: @piece, fig: @fig })
+    else
+      Pusher.trigger(channel, 'move_event', { piece: @piece, fig: @fig })
+    end
     render json: { piece: @piece, fig: @fig }
   end
 

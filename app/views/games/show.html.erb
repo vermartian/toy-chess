@@ -26,3 +26,32 @@
 </br>
 </div>
 </div>
+<script>
+
+  channel.bind('kill_event', function(data) {
+    var piece = data.piece;
+    var fig = data.fig;
+    var color = data.piece.color;
+    var x = data.piece.x;
+    var y = data.piece.y;
+    var pieceimg = pieceImg(piece, fig, color);
+    $("img[data-piece-id='" + piece.id +"']").remove();
+    if (color){
+      $(pieceimg).css({top: 0, left: 0}).appendTo("#bgrave td");
+    } else {
+      $(pieceimg).css({top: 0, left: 0}).appendTo("#wgrave td");
+    };
+  });
+  channel.bind('move_event', function(data) {
+    var piece = data.piece;
+    var fig = data.fig;
+    var color = data.piece.color;
+    var pieceimg = pieceImg(piece, fig, color);
+    var origin = $("img[data-piece-id='" + piece.id +"']");
+    var target = $("td[data-y='" + piece.y +"'][data-x='" + piece.x + "']")
+    // $("td.selected").find('img').remove();
+    $("td.selected").removeClass('selected');
+    target.append(pieceimg);
+    origin.remove();
+  });
+</script>
