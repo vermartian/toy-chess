@@ -38,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  require 'pusher'
+  Pusher.url = 'http://PUSHER_KEY:PUSHER_SECRET@api.pusherapp.com/apps/PUSHER_APP_ID'
+  Pusher.logger = Rails.logger
 end

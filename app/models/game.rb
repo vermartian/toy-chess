@@ -19,6 +19,18 @@ class Game < ActiveRecord::Base
     board
   end
 
+  def turn?
+    if self.turn % 2 == 0
+      true
+    else
+      false
+    end
+  end
+
+  def piece_at?(x, y)
+    self.pieces.where(x: x, y: y).last
+  end
+
 private
 
   def new_board!

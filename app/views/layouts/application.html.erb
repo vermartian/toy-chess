@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title>Toy-Chess</title>
     <%= javascript_include_tag "//js.pusher.com/3.0/pusher.min.js" %>
     <%= Gon::Base.render_data({}) %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => false %>
-  
+    <script>
+      var pusher = new Pusher("ace54ddc2c4b43080294")
+      var channelName = 'public-conversation';
+      var channel = pusher.subscribe(channelName);
+    </script>
     <%= csrf_meta_tags %>
   </head>
 

@@ -15,7 +15,7 @@
 //= require foundation
 //= require chess_board
 //= require gameplay
-// $(document).ready(function () {
+
 gon.board
 gon.figs
 gon.b_grave
@@ -24,4 +24,3 @@ gon.b_dead_figs
 gon.w_dead_figs
 gon.player_color
 $(function(){ $(document).foundation(); });
-// });

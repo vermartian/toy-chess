@@ -7,12 +7,10 @@ class Piece < ActiveRecord::Base
     @vectors ||= vectors
   end
 
-  def move(position)
+  def move(x, y)
     if self.move_capable?(position)
-      @x = position[0]
-      @y = position[1]
-    else
-      # snapback
+      @x = x
+      @y = y
     end
   end
 
@@ -32,13 +30,5 @@ class Piece < ActiveRecord::Base
       end
     end
     false
-  end
-
-  def chess_board_coords?(coordinates)
-    coordinates[0].between?(0, 7) && coordinates[1].between?(0, 7)
-  end
-
-  def opponent_color
-    @color == false ? true : false
   end
 end

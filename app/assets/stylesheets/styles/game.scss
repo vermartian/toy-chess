@@ -1,7 +1,9 @@
 #gamesheader {
-  color: #9bb0bb;
+  color: #ffffff;
+  font-weight: 600;
   margin-left: 30px;
   padding-top: 30px;
+  font-family: fantasy;
 }
 #gamesbody {
   margin-left: 30px;
@@ -76,7 +78,6 @@
   color: #9bb0bb;
 }
 
-// .hover {
-//   -webkit-box-shadow: inset 0px 0px 5px 5px rgba(50, 150, 25, .5);
-//   box-shadow: inset 0px 0px 5px 5px rgba(50, 150, 25, .5);
-// }
+a {
+  color: #ffffff;
+}
