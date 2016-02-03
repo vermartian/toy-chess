@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails', '= 5.5.3.2'
+gem 'dotenv-rails'
 
 gem 'simple_form'
 gem 'devise'
