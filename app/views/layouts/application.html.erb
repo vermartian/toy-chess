@@ -10,7 +10,7 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => false %>
     <script>
-      var pusher = new Pusher("ace54ddc2c4b43080294")
+      var pusher = new Pusher('<%= ENV['PUSHER_KEY'] %>')
       var channelName = 'public-conversation';
       var channel = pusher.subscribe(channelName);
     </script>
