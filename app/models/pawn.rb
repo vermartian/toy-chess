@@ -1,7 +1,7 @@
 class Pawn < Piece
 
   def vectors
-    if @color == false
+    if color == false
       vectors = [[0, 1], [1, 1], [-1, 1]]
       if y == 1
         vectors << [0, 2]

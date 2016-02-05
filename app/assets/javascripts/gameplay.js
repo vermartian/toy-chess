@@ -25,7 +25,7 @@
   function pieceSelect($piece) {
     $piece.addClass('selected');
   };
-  
+
   function pieceDeselect($piece) {
     $piece.removeClass('selected');
   };
@@ -38,7 +38,8 @@
     var piece = {
         id: $piece.data('piece-id'),
         x: $target.data('x'),
-        y: $target.data('y')
+        y: $target.data('y'),
+        state: 'moved'
     };
     if($target.find('img').length > 0){
       var deadpiece = {

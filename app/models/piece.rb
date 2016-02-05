@@ -14,8 +14,8 @@ class Piece < ActiveRecord::Base
     end
   end
 
-  def self.move_capable?(target)
-    vector = [target[0] - self.x, target[1] - self.y]
+  def move_capable?(file, rank)
+    vector = [file.to_i - x, rank.to_i - y]
     if vector == [0,0]
       return false
     end
