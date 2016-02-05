@@ -49,7 +49,6 @@
     var pieceimg = pieceImg(piece, fig, color);
     var origin = $("img[data-piece-id='" + piece.id +"']");
     var target = $("td[data-y='" + piece.y +"'][data-x='" + piece.x + "']")
-    // $("td.selected").find('img').remove();
     $("td.selected").removeClass('selected');
     target.append(pieceimg);
     origin.remove();
