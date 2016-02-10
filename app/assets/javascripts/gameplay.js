@@ -41,15 +41,6 @@
         y: $target.data('y'),
         state: 'moved'
     };
-    // if($target.find('img').length > 0){
-    //   var deadpiece = {
-    //     id: $target.find('img').data('piece-id'),
-    //     x: 8,
-    //     y: 8,
-    //     state: 'off'
-    //   };
-    //   killPiece(deadpiece)
-    // };
     updatePiece(piece)
   };
   function pieceImg(piece, fig, color) {
@@ -66,13 +57,3 @@
       }
     });
   };
-  // function killPiece(piece) {
-  //   $.ajax({
-  //     type: 'PATCH',
-  //     url: '/pieces/' + piece.id,
-  //     dataType: 'json',
-  //     data: {
-  //       piece: piece
-  //     }
-  //   });
-  // };

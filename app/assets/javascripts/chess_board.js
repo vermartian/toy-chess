@@ -29,7 +29,7 @@ function initializeGraveyards(){
     $("#wgrave td").append(col);
   };
   for (var g=0; g<gon.b_graves.length; g++) {
-    var col = "<img data-piece-id='"+gon.b_graves[g].id+"' data-color='"+false+"' src='https://s3.amazonaws.com/toy-chess/"+gon.b_dead_figs[g]+"'/>";
+    var col = "<img data-piece-id='"+gon.b_graves[g].id+"' data-color='"+true+"' src='https://s3.amazonaws.com/toy-chess/"+gon.b_dead_figs[g]+"'/>";
     $("#bgrave td").append(col);
   };
 };

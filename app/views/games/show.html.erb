@@ -9,13 +9,13 @@
   <ul id="cbgylist">
     <li class="inline">
       <div class="gylist" id="blackgy">
-        <table class="gy" id="bgrave"><td data-x='8' data-y="8"></td></table>
+        <table class="gy" id="bgrave"><td data-x='8' data-y="8" data-color="true"></td></table>
       </div>
     </li>
     <li class="inline"><table id="chessboard" data-turn='TODO:turn?'></table></li>
     <li class="inline">
       <div class="gylist" id="whitegy">
-        <table class="gy" id="wgrave"><td data-x='8' data-y="8"></td></table>
+        <table class="gy" id="wgrave"><td data-x='8' data-y="8" data-color="false"></td></table>
       </div>
     </li>
   </ul>
@@ -28,27 +28,17 @@
 </div>
 <script>
 
-  channel.bind('kill_event', function(data) {
-    var piece = data.piece;
-    var fig = data.fig;
-    var color = data.piece.color;
-    var x = data.piece.x;
-    var y = data.piece.y;
-    var pieceimg = pieceImg(piece, fig, color);
-    $("img[data-piece-id='" + piece.id +"']").remove();
-    if (color){
-      $(pieceimg).css({top: 0, left: 0}).appendTo("#bgrave td");
-    } else {
-      $(pieceimg).css({top: 0, left: 0}).appendTo("#wgrave td");
-    };
-  });
   channel.bind('move_event', function(data) {
     var piece = data.piece;
     var fig = data.fig;
     var color = data.piece.color;
     var pieceimg = pieceImg(piece, fig, color);
     var origin = $("img[data-piece-id='" + piece.id +"']");
-    var target = $("td[data-y='" + piece.y +"'][data-x='" + piece.x + "']")
+    if (piece.x == 8){
+      var target = $("td[data-color='" + color + "']")
+    } else {
+      var target = $("td[data-y='" + piece.y +"'][data-x='" + piece.x + "']")
+    };
     $("td.selected").removeClass('selected');
     target.append(pieceimg);
     origin.remove();
