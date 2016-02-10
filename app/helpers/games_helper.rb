@@ -43,4 +43,52 @@ module GamesHelper
   def player_color(game)
     gon.player_color = game.gameplays.where(player_id: current_player.id)[0].color
   end
+
+  def diagonal_path(file, rank)
+    xpos = x
+    ypos = y
+    steps = []
+    file, rank = file.to_i, rank.to_i
+
+    if file == xpos || rank == ypos
+      return steps
+    end
+
+    delta_x = file > xpos ? 1 : -1
+    delta_y = rank > ypos ? 1 : -1
+
+    xpos += delta_x
+    ypos += delta_y
+
+    while (file - xpos).abs > 0 && (rank - ypos).abs > 0
+      steps << [xpos, ypos]
+      xpos += delta_x
+      ypos += delta_y
+    end
+    steps
+  end
+
+  def square_path(file, rank)
+    xpos = x
+    ypos = y
+    steps = []
+    file, rank = file.to_i, rank.to_i
+
+    if rank == ypos
+      delta_x = file > xpos ? 1 : -1
+      xpos += delta_x
+      while (file - xpos).abs > 0
+        steps << [xpos, ypos]
+        xpos += delta_x
+      end
+    elsif file == xpos
+      delta_y = rank > ypos ? 1 : -1
+      ypos += delta_y
+      while (rank - ypos).abs > 0
+        steps << [xpos, ypos]
+        ypos += delta_y
+      end
+    end
+    steps
+  end
 end

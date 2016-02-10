@@ -27,8 +27,12 @@ class Game < ActiveRecord::Base
     end
   end
 
-  def piece_at?(x, y)
+  def piece_at(x, y)
     self.pieces.where(x: x, y: y).last
+  end
+
+  def piece_at?(x, y)
+    piece_at(x, y) ? true : false
   end
 
 private

@@ -23,12 +23,10 @@
         <li class="name">
           <h1><a href="#">Toy-Chess</a></h1>
         </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
 
       <section class="top-bar-section">
-    <!-- Right Nav Section -->
       <ul class="right">
         <% if player_signed_in? %>
           <li id="signed_in">Signed in as:</li><li id="signed_in"><strong><%= current_player.user_name %></strong></li>
@@ -38,8 +36,7 @@
           <li><strong><%= link_to 'Sign Up', new_player_registration_path %></strong></li>
         <% end %>
       </ul>
-
-    <!-- Left Nav Section -->
+      
       <ul class="left">
         <li><a href="/">Home</a></li>
       </ul>
