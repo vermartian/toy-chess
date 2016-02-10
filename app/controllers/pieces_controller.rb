@@ -5,12 +5,20 @@ class PiecesController < ApplicationController
     @game = @piece.game
     @fig = @piece.figure
     channel = "public-conversation"
-    if @piece.move_capable?(params[:piece][:x], params[:piece][:y]) || params[:piece][:state] == "off"
-      @piece.update(piece_params)
-      if @piece.state == "off"
-        Pusher.trigger(channel, 'kill_event', { piece: @piece, fig: @fig })
-      else
-        Pusher.trigger(channel, 'move_event', { piece: @piece, fig: @fig })
+    capable = @piece.move_capable?(params[:piece][:x], params[:piece][:y])
+    blocked = @piece.blocked?(params[:piece][:x], params[:piece][:y])
+    life = params[:piece][:state]
+    piece_turn = @game.turn? == @piece.color
+    unless blocked
+      if (capable && piece_turn) || (life == "off" && !piece_turn)
+        @piece.move(piece_params)
+        if @piece.state == "off"
+          Pusher.trigger(channel, 'kill_event', { piece: @piece, fig: @fig })
+        else
+          turn_count = @game.turn += 1
+          @game.update_attributes(turn: turn_count)
+          Pusher.trigger(channel, 'move_event', { piece: @piece, fig: @fig })
+        end
       end
     end
     render json: { piece: @piece, fig: @fig }
