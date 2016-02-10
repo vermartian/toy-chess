@@ -5,6 +5,12 @@
 #### Description: ####
   Browser to browser two player chess game using ruby on rails!
 
+## Checkout the current state of the project: ##
+
+[https://toy-chess.herokuapp.com]
+
+## TO-DO ##
+
 ```
 As a user
 I want to be able to choose which color I play when creating a new match,
