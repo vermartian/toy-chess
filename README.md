@@ -7,7 +7,7 @@
 
 ## Checkout the current state of the project: ##
 
-[https://toy-chess.herokuapp.com]
+https://toy-chess.herokuapp.com
 
 ## TO-DO ##
 
