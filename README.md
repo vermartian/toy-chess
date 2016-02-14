@@ -1,7 +1,5 @@
 ![Build Status](https://codeship.com/projects/b08dc5d0-a228-0133-0466-465166e508dd/status?branch=master)
 
-[![Code Climate](https://codeclimate.com/github/vermartian/toy-chess/badges/gpa.svg)](https://codeclimate.com/github/vermartian/toy-chess)
-
 #### Description: ####
   Browser to browser two player chess game using ruby on rails!
 
