@@ -7,7 +7,7 @@ module GamesHelper
   end
 
   def figuratize(game)
-    board = @game.board
+    board = game.board
     gon.board = board
     piece_figs = []
     8.times do
@@ -50,20 +50,18 @@ module GamesHelper
     steps = []
     file, rank = file.to_i, rank.to_i
 
-    if file == xpos || rank == ypos
-      return steps
-    end
+    unless file == xpos || rank == ypos
+      delta_x = file > xpos ? 1 : -1
+      delta_y = rank > ypos ? 1 : -1
 
-    delta_x = file > xpos ? 1 : -1
-    delta_y = rank > ypos ? 1 : -1
-
-    xpos += delta_x
-    ypos += delta_y
-
-    while (file - xpos).abs > 0 && (rank - ypos).abs > 0
-      steps << [xpos, ypos]
       xpos += delta_x
       ypos += delta_y
+
+      while (file - xpos).abs > 0 && (rank - ypos).abs > 0
+        steps << [xpos, ypos]
+        xpos += delta_x
+        ypos += delta_y
+      end
     end
     steps
   end
