@@ -58,10 +58,8 @@ private
     board[7][5] = Bishop.create(game_id: self.id, color: true, y: 7, x: 5, sliding: true, state: "on")
     board[7][3] = Queen.create(game_id: self.id, color: true, y: 7, x: 3, sliding: true, state: "on")
     board[7][4] = King.create(game_id: self.id, color: true, y: 7, x: 4, sliding: false, state: "on")
-    board[1].each_with_index.map do |sq, col|
+    (0..7).each do |col|
       board[1][col] = Pawn.create(game_id: self.id, color: false, y: 1, x: col, sliding: false, state: "on")
-    end
-    board[6].each_with_index.map do |sq, col|
       board[6][col] = Pawn.create(game_id: self.id, color: true, y: 6, x: col, sliding: false, state: "on")
     end
     board

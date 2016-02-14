@@ -8,9 +8,7 @@ class Piece < ActiveRecord::Base
   end
 
   def move(params)
-    xpos = params[:x].to_i
-    ypos = params[:y].to_i
-    channel = "public-conversation"
+    xpos, ypos, channel = params[:x].to_i, params[:y].to_i, 'public-conversation'
     if game.piece_at?(xpos, ypos)
       captured_piece = game.piece_at(xpos, ypos)
       captured_piece_fig = captured_piece.figure
