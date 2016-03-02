@@ -17,7 +17,7 @@ class Piece < ActiveRecord::Base
       Pusher.trigger('public-conversation', 'move_event', {
         piece: self,
         fig: figure
-        })
+      })
     end
   end
 
