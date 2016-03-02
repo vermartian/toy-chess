@@ -13,10 +13,7 @@ class PiecesController < ApplicationController
     player_turn = @game.gameplays.find_by(player: player).color == @game.turn?
     unless blocked
       if capable && piece_turn && player_turn
-        @piece.move(piece_params)
-        turn_count = @game.turn += 1
-        @game.update_attributes(turn: turn_count)
-        Pusher.trigger(channel, 'move_event', { piece: @piece, fig: @fig })
+        @piece.check_move(piece_params)
       end
     end
     render json: { piece: @piece, fig: @fig }

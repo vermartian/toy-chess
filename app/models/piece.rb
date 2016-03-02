@@ -7,6 +7,20 @@ class Piece < ActiveRecord::Base
     @vectors ||= vectors
   end
 
+  def check_move(params)
+    Piece.transaction do
+      move(params)
+      fail ActiveRecord::Rollback if game.check?(color)
+
+      turn_count = game.turn += 1
+      game.update_attributes(turn: turn_count)
+      Pusher.trigger('public-conversation', 'move_event', {
+        piece: self,
+        fig: figure
+      })
+    end
+  end
+
   def move(params)
     xpos, ypos = params[:x].to_i, params[:y].to_i
     channel = 'public-conversation'

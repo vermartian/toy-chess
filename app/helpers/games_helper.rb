@@ -44,6 +44,10 @@ module GamesHelper
     gon.player_color = game.gameplays.where(player_id: current_player.id)[0].color
   end
 
+  def paths(file, rank)
+    diagonal_path(file, rank) + square_path(file, rank)
+  end
+
   def diagonal_path(file, rank)
     xpos = x
     ypos = y

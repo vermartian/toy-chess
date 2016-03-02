@@ -11,6 +11,11 @@ class King < Piece
     v
   end
 
+  def escape?
+    # todo
+    true
+  end
+
   def castle_ks?
     if state == 'moved'
       return false
