@@ -14,7 +14,10 @@ class Piece < ActiveRecord::Base
 
       turn_count = game.turn += 1
       game.update_attributes(turn: turn_count)
-      Pusher.trigger("public-conversation", "move_event", { piece: self, fig: self.figure })
+      Pusher.trigger('public-conversation', 'move_event', {
+        piece: self,
+        fig: figure
+        })
     end
   end
 
