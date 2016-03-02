@@ -10,7 +10,6 @@ class Game < ActiveRecord::Base
     8.times do
       board <<  Array.new(8)
     end
-    pieces = self.pieces
     pieces.each do |piece|
       unless piece.x == 8
         board[piece.y][piece.x] = piece
@@ -20,7 +19,7 @@ class Game < ActiveRecord::Base
   end
 
   def turn?
-    if self.turn % 2 == 0
+    if turn % 2 == 0
       true
     else
       false
@@ -28,11 +27,59 @@ class Game < ActiveRecord::Base
   end
 
   def piece_at(x, y)
-    self.pieces.where(x: x, y: y).last
+    pieces.where(x: x, y: y).last
   end
 
   def piece_at?(x, y)
     piece_at(x, y) ? true : false
+  end
+
+  def check?(color)
+    king = king(color)
+    pieces_inplay(!color).each do |pc|
+      if pc.move_capable?(king.x, king.y)
+        unless pc.blocked?(king.x, king.y)
+          @assassin = pc
+          return true
+        end
+      end
+    end
+    false
+  end
+
+  def checkmate?(color)
+    unless check?(color)
+      return false
+    end
+    king = king(color)
+    pieces_inplay(color).each do |pc|
+      if pc.move_capable?(@assassin.x, @assassin.y)
+        unless pc.blocked?(@assassin.x, @assassin.y)
+          # if !check_causing_move
+          return false
+        end
+      elsif @assassin.sliding && !@assassin.paths(king.x, king.y).empty?
+        @assassin.paths(king.x, king.y).each do |sq|
+          if pc.move_capable?(sq[0], sq[1])
+            unless pc.blocked?(sq[0], sq[1])
+              # if !check_causing_move
+              return false
+            end
+          end
+        end
+      elsif king.escape?
+        return false
+      end
+    end
+    true
+  end
+
+  def pieces_inplay(color)
+    pieces.where(color: color).where.not(state: "off")
+  end
+
+  def king(color)
+    pieces.find_by(type: 'King', color: color)
   end
 
 private
