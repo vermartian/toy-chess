@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.5'
-gem 'pg', '~> 0.15'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'rails', '~> 5.0'
+gem 'pg'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails', '= 5.5.3.2'
 
@@ -16,20 +16,20 @@ gem 'devise'
 gem 'kaminari'
 gem 'gon'
 gem 'pusher'
+gem 'bootsnap'
+gem 'modernizr-rails'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
-  gem 'byebug'
-  gem 'dotenv-rails', :github => "bkeepers/dotenv"
+  gem 'dotenv-rails'
 
-  gem 'quiet_assets'
   gem 'poltergeist'
 end
 
@@ -39,8 +39,8 @@ group :test do
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'listen'
 end
 
 gem 'rails_12factor', group: :production

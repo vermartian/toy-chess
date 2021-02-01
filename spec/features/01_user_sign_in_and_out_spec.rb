@@ -4,7 +4,7 @@ require 'rails_helper'
 
 
 feature 'sign in and out' do
-  let(:player) { FactoryGirl.create(:player) }
+  let(:player) { FactoryBot.create(:player) }
 
   before(:each) do
     player

@@ -1,4 +1,4 @@
-class Gameplay < ActiveRecord::Base
+class Gameplay < ApplicationRecord
   after_create :assign_pieces
     
   belongs_to :game

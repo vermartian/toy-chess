@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Piece, type: :model do
-  let(:piece) { FactoryGirl.build(:piece) }
+  let(:piece) { FactoryBot.build(:piece) }
 
   before(:each) do
     piece

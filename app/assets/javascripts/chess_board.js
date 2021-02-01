@@ -22,8 +22,8 @@ function initializeBoard(){
     $("#chessboard").append("<tr>"+col+"</tr>");
   };
 }
-function initializeGraveyards(){
 
+function initializeGraveyards(){
   for (var g=0; g<gon.w_graves.length; g++) {
     var col = "<img data-piece-id='"+gon.w_graves[g].id+"' data-color='"+false+"' src='https://s3.amazonaws.com/toy-chess/"+gon.w_dead_figs[g]+"'/>";
     $("#wgrave td").append(col);
@@ -33,5 +33,11 @@ function initializeGraveyards(){
     $("#bgrave td").append(col);
   }
 };
-initializeBoard();
-initializeGraveyards();
+
+function initializeGame(){
+  if (Object.keys(gon).length) {
+    initializeBoard();
+    initializeGraveyards();
+  }
+};
+initializeGame();

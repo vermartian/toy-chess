@@ -1,4 +1,4 @@
-class Game < ActiveRecord::Base
+class Game < ApplicationRecord
   after_create :new_board!
 
   has_many :players, through: :gameplays
