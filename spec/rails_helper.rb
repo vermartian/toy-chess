@@ -7,7 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 
 require File.join(File.dirname(__FILE__), 'support/valid_attribute')
-require File.join(File.dirname(__FILE__), 'support/factory_girl')
+require File.join(File.dirname(__FILE__), 'support/factory_bot')
 require 'capybara/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!

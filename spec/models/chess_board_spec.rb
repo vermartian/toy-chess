@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ChessBoard, type: :model do
-  let(:chess_board) { FactoryGirl.build(:chess_board) }
+  let(:chess_board) { FactoryBot.build(:chess_board) }
   let(:a_number) { rand(8) }
 
   before(:each) do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'home page' do
-  let(:player) { FactoryGirl.create(:player) }
+  let(:player) { FactoryBot.create(:player) }
 
   scenario 'prospective user visits home page and sees the option to sign up' do
     visit root_path

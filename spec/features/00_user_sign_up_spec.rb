@@ -3,7 +3,7 @@ require 'rails_helper'
 # [X] As a player I want to be able to sign up
 
 feature 'sign up' do
-  let(:player) { FactoryGirl.build(:player) }
+  let(:player) { FactoryBot.build(:player) }
 
   before(:each) do
     player

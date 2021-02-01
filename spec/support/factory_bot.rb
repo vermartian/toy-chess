@@ -1,19 +1,19 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :chess_board do
   end
 end
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :piece do
   end
 end
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :square do
   end
 end
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :player do
     user_name "myUserName"
     email "user@email.com"

@@ -1,4 +1,4 @@
-class CreateGameplays < ActiveRecord::Migration
+class CreateGameplays < ActiveRecord::Migration[5.2]
   def change
     create_table :gameplays do |t|
       t.integer :player_id, null: false

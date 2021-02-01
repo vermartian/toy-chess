@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "new game" do
-  let(:player) { FactoryGirl.create(:player) }
+  let(:player) { FactoryBot.create(:player) }
 
   before(:each) do
     player

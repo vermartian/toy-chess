@@ -1,6 +1,6 @@
-class Piece < ActiveRecord::Base
+class Piece < ApplicationRecord
   include GamesHelper
-  belongs_to :player
+  # belongs_to :player
   belongs_to :game
 
   def vectors(vectors = [])

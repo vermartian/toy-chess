@@ -1,7 +1,7 @@
-class Player < ActiveRecord::Base
+class Player < ApplicationRecord
   has_many :gameplays
   has_many :games, through: :gameplays
-  has_many :pieces
+  # has_many :pieces
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
