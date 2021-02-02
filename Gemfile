@@ -8,7 +8,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jbuilder'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc'
 gem 'foundation-rails', '= 5.5.3.2'
 
 gem 'simple_form'
